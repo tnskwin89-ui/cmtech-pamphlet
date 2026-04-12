@@ -44,6 +44,36 @@
   }
   @media print { body { background: none; } .print-guide { display: none; } }
 
+  /* ===== QR CODE ===== */
+  .qr-code {
+    position: absolute;
+    bottom: 10mm;
+    right: 10mm;
+    width: 22mm;
+    height: 22mm;
+    background: #ffffff;
+    padding: 2mm;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-code img { width: 100%; height: 100%; display: block; }
+  .qr-code.on-dark { background: #ffffff; }
+  .qr-code .qr-label {
+    position: absolute;
+    bottom: -4mm;
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    white-space: nowrap;
+  }
+  .qr-code.on-light .qr-label { color: var(--slate); }
+
   /* ===== MOBILE RESPONSIVE (scale fixed A4 pages to viewport) ===== */
   @media screen and (max-width: 1200px) {
     body { padding: 12px 0; gap: 0; }
@@ -329,6 +359,10 @@
     <div class="cover-tagline">Innovation in Beauty Ingredients</div>
   </div>
   <div class="cover-border"></div>
+  <div class="qr-code on-dark">
+    <img src="cmtech-qrcode.png" alt="CM Tech QR Code">
+    <span class="qr-label">Scan</span>
+  </div>
 </div>
 
 <!-- ===== PAGE 2 — COMPANY INTRO ===== -->
@@ -864,6 +898,10 @@
       </div>
       <div class="page-num right">14</div>
     </div>
+  </div>
+  <div class="qr-code on-light">
+    <img src="cmtech-qrcode.png" alt="CM Tech QR Code">
+    <span class="qr-label">Scan</span>
   </div>
 </div>
 
