@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>CM Tech — Make-Up Ingredients 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1d2e;
+    --midnight: #0f1219;
+    --slate: #2c3044;
+    --pearl: #f7f5f0;
+    --cream: #fffdf7;
+    --gold: #c9a96e;
+    --gold-light: #dfc9a0;
+    --gold-pale: #f0e6d0;
+    --rose: #b08a74;
+    --mist: #e8e4dc;
+    --soft-gray: #9a9694;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  @page { size: A4 landscape; margin: 0; }
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: #d8d5ce;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 297mm; height: 210mm;
+    position: relative; overflow: hidden;
+    page-break-after: always;
+    background: var(--cream);
+  }
+  .page:last-child { page-break-after: auto; }
+  @media screen {
+    body { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 40px 20px; }
+    .page { box-shadow: 0 8px 40px rgba(0,0,0,0.15); }
+    .print-guide { display: block; text-align: center; font-family: 'Outfit', sans-serif; color: var(--soft-gray); font-size: 13px; margin-bottom: -20px; }
+    .print-guide span { background: var(--mist); padding: 6px 16px; border-radius: 20px; }
+  }
+  @media print { body { background: none; } .print-guide { display: none; } }
+
+  /* ===== QR CODE ===== */
+  .qr-code {
+    position: absolute;
+    bottom: 10mm;
+    right: 10mm;
+    width: 22mm;
+    height: 22mm;
+    background: #ffffff;
+    padding: 2mm;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .qr-code img { width: 100%; height: 100%; display: block; }
+  .qr-code.on-dark { background: #ffffff; }
+  .qr-code .qr-label {
+    position: absolute;
+    bottom: -4mm;
+    font-size: 7px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    white-space: nowrap;
+  }
+  .qr-code.on-light .qr-label { color: var(--slate); }
+
+  /* ===== FLYER APPENDIX ===== */
+  .flyer-section {
+    width: 100%;
+    max-width: 1123px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 20px 20px 80px;
+    box-sizing: border-box;
+  }
+  .flyer-divider {
+    width: 100%;
+    max-width: 900px;
+    text-align: center;
+    padding: 24px 0 8px;
+    color: var(--slate);
+  }
+  .flyer-divider-line {
+    display: block;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 14px auto;
+  }
+  .flyer-divider-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 34px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+  .flyer-divider-title em { color: var(--gold); font-style: italic; }
+  .flyer-divider-sub {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--soft-gray);
+    margin-top: 6px;
+  }
+  .flyer-slide {
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.18);
+    border-radius: 2px;
+    overflow: hidden;
+    background: #fff;
+  }
+  .flyer-slide img { width: 100%; height: auto; display: block; }
+  @media print { .flyer-section { display: none; } }
+
+  /* ===== MOBILE RESPONSIVE (scale fixed A4 pages to viewport) ===== */
+  @media screen and (max-width: 1200px) {
+    body { padding: 12px 0; gap: 0; }
+    .print-guide { padding: 0 12px 12px; }
+    .page {
+      transform: scale(var(--mobile-scale, 1));
+      transform-origin: top center;
+      margin-bottom: var(--mobile-gap, 24px);
+    }
+  }
+
+  /* ===== COVER ===== */
+  .cover { background: var(--midnight); display: grid; grid-template-columns: 1fr 1fr; }
+  .cover-img { position: relative; overflow: hidden; }
+  .cover-img img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; filter: saturate(0.8) contrast(1.1); }
+  .cover-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, transparent 30%, var(--midnight) 100%); }
+  .cover-text { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px; position: relative; z-index: 2; }
+  .cover-border { position: absolute; top: 14mm; right: 14mm; bottom: 14mm; width: calc(50% - 14mm); border: 0.5px solid rgba(201,169,110,0.2); z-index: 2; pointer-events: none; }
+  .cover-border::before, .cover-border::after { content: ''; position: absolute; width: 24px; height: 24px; border-color: var(--gold); border-style: solid; }
+  .cover-border::before { top: -1px; left: -1px; border-width: 1.5px 0 0 1.5px; }
+  .cover-border::after { bottom: -1px; right: -1px; border-width: 0 1.5px 1.5px 0; }
+  .cover-label { font-size: 11px; font-weight: 400; letter-spacing: 5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 28px; }
+  .cover-logo { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: var(--cream); letter-spacing: 10px; line-height: 1; }
+  .cover-logo em { font-style: italic; color: var(--gold); font-weight: 300; }
+  .cover-divider { width: 60px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 28px auto; }
+  .cover-subtitle { font-size: 13px; font-weight: 300; letter-spacing: 4px; text-transform: uppercase; color: var(--mist); }
+  .cover-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 18px; font-weight: 300; color: var(--gold-pale); margin-top: 36px; opacity: 0.7; }
+  .cover-footer { position: absolute; bottom: 18mm; right: calc(25% + 14mm); transform: translateX(50%); z-index: 3; }
+  .cover-footer span { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(201,169,110,0.4); }
+
+  /* ===== INTRO ===== */
+  .intro { display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--cream); }
+  .intro-left { background: var(--pearl); padding: 22mm 18mm 22mm 22mm; display: flex; flex-direction: column; justify-content: center; position: relative; }
+  .intro-left::after { content: ''; position: absolute; right: 0; top: 12%; height: 76%; width: 1px; background: linear-gradient(180deg, transparent, var(--gold-light), transparent); }
+  .section-label { font-size: 10px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .intro-heading { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 400; line-height: 1.25; color: var(--ink); margin-bottom: 22px; }
+  .intro-heading em { font-style: italic; color: var(--gold); }
+  .intro-text { font-size: 13px; font-weight: 300; line-height: 1.9; color: var(--slate); max-width: 360px; }
+  .intro-text p + p { margin-top: 14px; }
+  .intro-certs { margin-top: 22px; padding-top: 14px; border-top: 0.5px solid var(--mist); }
+  .cert-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+  .cert-badge { font-size: 9px; font-weight: 400; letter-spacing: 1px; color: var(--slate); background: var(--cream); border: 0.5px solid var(--mist); padding: 5px 14px; border-radius: 2px; }
+  .location-row { display: flex; gap: 24px; margin-top: 14px; }
+  .location-item { display: flex; align-items: center; gap: 8px; }
+  .location-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+  .location-name { font-size: 11px; font-weight: 400; color: var(--slate); }
+  .location-detail { font-size: 9px; color: var(--soft-gray); }
+  .intro-right { display: grid; grid-template-rows: 1fr 1fr; }
+  .intro-img-block { position: relative; overflow: hidden; }
+  .intro-img-block img { width: 100%; height: 100%; object-fit: cover; }
+  .intro-img-block .img-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,169,110,0.06), rgba(15,18,25,0.12)); }
+  .intro-img-block .img-label { position: absolute; bottom: 12px; left: 16px; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.8); text-shadow: 0 1px 4px rgba(0,0,0,0.5); }
+
+  /* ===== MAGAZINE PRODUCT PAGES ===== */
+  .mag-page {
+    display: grid;
+    height: 100%;
+  }
+  .mag-page.img-left { grid-template-columns: 0.32fr 0.68fr; }
+  .mag-page.img-right { grid-template-columns: 0.68fr 0.32fr; }
+
+  .mag-img {
+    position: relative; overflow: hidden;
+  }
+  .mag-img img {
+    width: 100%; height: 100%; object-fit: cover;
+  }
+  .mag-img .mag-img-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,0.25) 100%);
+  }
+  .mag-img .mag-img-caption {
+    position: absolute; bottom: 16px; left: 18px; right: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-size: 16px;
+    color: rgba(255,255,255,0.85);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    line-height: 1.4;
+  }
+
+  .mag-content {
+    padding: 12mm 16mm 10mm;
+    display: flex; flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .mag-content::before {
+    content: '';
+    position: absolute;
+    top: 8mm; left: 16mm; right: 16mm;
+    height: 0.5px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), transparent);
+  }
+
+  .mag-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    color: var(--ink); margin-bottom: 3mm; padding-top: 2px;
+  }
+  .mag-title em { font-style: italic; color: var(--gold); }
+
+  .mag-products { flex: 1; }
+
+  .cat-block { margin-bottom: 3mm; break-inside: avoid; }
+  .cat-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 3px; padding-bottom: 3px;
+    border-bottom: 1px solid var(--gold-pale);
+  }
+  .cat-icon {
+    width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 8px; flex-shrink: 0; font-weight: 600;
+  }
+  .cat-icon.uv { background: linear-gradient(135deg, #ffd89b, #f0c27f); color: #8a6d3b; }
+  .cat-icon.filler { background: linear-gradient(135deg, #e8d5b7, #d4c5a9); color: #7a6b55; }
+  .cat-icon.pigment { background: linear-gradient(135deg, #f5c6c6, #e8a0a0); color: #8a4444; }
+  .cat-icon.sensory { background: linear-gradient(135deg, #c6daf5, #a0bce8); color: #44628a; }
+  .cat-icon.dispersion { background: linear-gradient(135deg, #d5c6f5, #b8a0e8); color: #5a448a; }
+  .cat-icon.film { background: linear-gradient(135deg, #c6f5d5, #a0e8b8); color: #448a5a; }
+  .cat-icon.silicone { background: linear-gradient(135deg, #dce8f0, #b8c8d8); color: #4a6070; }
+  .cat-icon.emollient { background: linear-gradient(135deg, #f5e6c6, #e8d0a0); color: #8a7044; }
+  .cat-icon.specialty { background: linear-gradient(135deg, #f0dce8, #d8b8c8); color: #704a60; }
+  .cat-icon.emulsifier { background: linear-gradient(135deg, #c6e8f5, #a0d0e8); color: #447a8a; }
+
+  .cat-name {
+    font-size: 13px; font-weight: 500;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--ink);
+  }
+
+  .subcat-label {
+    font-size: 9.5px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--rose);
+    padding: 3px 0 2px 26px; margin-top: 2px;
+  }
+
+  .product-list { list-style: none; }
+  .product-item {
+    display: flex; flex-direction: column;
+    padding: 3px 0 3px 22px; line-height: 1.35;
+    border-bottom: 0.5px solid rgba(0,0,0,0.04);
+  }
+  .product-item:last-child { border-bottom: none; }
+  .product-name {
+    font-size: 11.5px; font-weight: 500; color: var(--slate);
+  }
+  .product-inci {
+    font-size: 9px; color: var(--soft-gray); font-weight: 300;
+    font-style: italic; line-height: 1.45;
+    padding-left: 0; margin-top: 1px;
+  }
+
+  /* Two-column inside content area */
+  .mag-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+    flex: 1;
+  }
+
+  .page-num {
+    position: absolute; bottom: 6mm;
+    font-size: 9px; color: var(--soft-gray); letter-spacing: 2px;
+    z-index: 10;
+  }
+  .page-num.left { left: 16mm; }
+  .page-num.right { right: 16mm; }
+
+  /* ===== TABLE OF CONTENTS ===== */
+  .toc {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--cream);
+  }
+  .toc-left {
+    background: var(--pearl);
+    padding: 20mm 16mm 20mm 22mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .toc-left::after {
+    content: '';
+    position: absolute;
+    right: 0; top: 15%; height: 70%; width: 1px;
+    background: linear-gradient(180deg, transparent, var(--gold-light), transparent);
+  }
+  .toc-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px; font-weight: 400; line-height: 1.2;
+    color: var(--ink); margin-bottom: 6mm;
+  }
+  .toc-heading em { font-style: italic; color: var(--gold); }
+  .toc-subtitle {
+    font-size: 12px; font-weight: 300; color: var(--soft-gray);
+    line-height: 1.8; max-width: 300px;
+  }
+
+  .toc-right {
+    padding: 20mm 22mm 20mm 18mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .toc-section {
+    margin-bottom: 5mm;
+  }
+  .toc-section-title {
+    font-size: 10px; font-weight: 500; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 3mm;
+    padding-bottom: 2mm;
+    border-bottom: 0.5px solid var(--gold-pale);
+  }
+  .toc-item {
+    display: flex; align-items: baseline;
+    padding: 2.5px 0; gap: 8px;
+  }
+  .toc-item-name {
+    font-size: 12px; font-weight: 400; color: var(--slate);
+  }
+  .toc-item-dots {
+    flex: 1; min-width: 10px;
+    border-bottom: 0.5px dotted rgba(0,0,0,0.12);
+    margin-bottom: 3px;
+  }
+  .toc-item-page {
+    font-size: 12px; font-weight: 500; color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    min-width: 20px; text-align: right;
+  }
+
+  .contact-footer {
+    position: absolute;
+    bottom: 10mm; left: 20mm; right: 20mm;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 8px; border-top: 0.5px solid var(--gold-pale);
+  }
+  .contact-footer .logo-sm {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px; font-weight: 400; color: var(--ink);
+  }
+  .contact-footer .logo-sm em { font-style: italic; color: var(--gold); }
+  .contact-info { font-size: 9px; color: var(--soft-gray); letter-spacing: 1px; text-align: right; line-height: 1.7; }
+
+  /* QR Code */
+  .qr-box {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .qr-box img {
+    width: 80px;
+    height: auto;
+    border-radius: 4px;
+  }
+  .qr-box.cover-qr {
+    bottom: 18mm;
+    left: 18mm;
+  }
+  .qr-box.footer-qr {
+    bottom: 14mm;
+    right: 18mm;
+  }
+</style>
+</head>
+<body>
+
+<p class="print-guide"><span>Print: Ctrl+P &rarr; A4 Landscape &rarr; No margins &rarr; Background graphics ON</span></p>
+
+<!-- ===== PAGE 1 — COVER ===== -->
+<div class="page cover">
+  <div class="cover-img"><img src="../images/oil_water.jpg" alt=""></div>
+  <div class="cover-text">
+    <div class="cover-label">Cosmetic Raw Materials</div>
+    <div class="cover-logo">CM <em>Tech</em></div>
+    <div class="cover-divider"></div>
+    <div class="cover-subtitle">Product Catalogue 2026</div>
+    <div class="cover-tagline">Innovation in Beauty Ingredients</div>
+  </div>
+  <div class="cover-border"></div>
+  <div class="qr-code on-dark">
+    <img src="makeup-qrcode.png" alt="CM Tech QR Code">
+    <span class="qr-label">Scan</span>
+  </div>
+</div>
+
+<!-- ===== PAGE 2 — COMPANY INTRO ===== -->
+<div class="page intro">
+  <div class="intro-left">
+    <div class="section-label">About Us</div>
+    <h2 class="intro-heading">Crafting the <em>Future</em><br>of Beauty</h2>
+    <div class="intro-text">
+      <p>CM Tech is a specialized cosmetic raw material manufacturer headquartered in Korea, providing innovative ingredients for the global beauty industry.</p>
+      <p>With dual manufacturing facilities in <strong>Pyeongtaek, Korea</strong> and <strong>Shanghai, China</strong>, we deliver high-quality silicone compounds, surface-treated powders, and pigment dispersions to leading cosmetic brands worldwide.</p>
+      <p>Our vertically integrated production capabilities allow precise control over quality, consistency, and customization — ensuring each ingredient meets the exacting standards of modern cosmetic formulation.</p>
+    </div>
+    <div style="margin-top: 18px;">
+      <div class="section-label">Locations</div>
+      <div class="location-row">
+        <div class="location-item"><div class="location-dot"></div><div class="location-name">Korea <span class="location-detail">· Pyeongtaek</span></div></div>
+        <div class="location-item"><div class="location-dot"></div><div class="location-name">China <span class="location-detail">· Shanghai</span></div></div>
+      </div>
+    </div>
+    <div class="intro-certs">
+      <div class="section-label">Certifications</div>
+      <div class="cert-row">
+        <div class="cert-badge">ISO 9001</div>
+        <div class="cert-badge">ISO 14001</div>
+        <div class="cert-badge">RSPO</div>
+        <div class="cert-badge">Safety Assessment</div>
+      </div>
+    </div>
+  </div>
+  <div class="intro-right">
+    <div class="intro-img-block"><img src="../images/lab1.jpg" alt=""><div class="img-overlay"></div><div class="img-label">R&D Laboratory</div></div>
+    <div class="intro-img-block"><img src="../images/color_powder.jpg" alt=""><div class="img-overlay"></div><div class="img-label">Powder &amp; Pigment Processing</div></div>
+  </div>
+  <div class="page-num right">02</div>
+</div>
+
+<!-- ===== PAGE 3 — TABLE OF CONTENTS ===== -->
+<div class="page toc">
+  <div class="toc-left">
+    <div class="section-label">Contents</div>
+    <h2 class="toc-heading">Make-Up<br><em>Ingredients</em></h2>
+    <div class="toc-subtitle">
+      CM Tech's make-up raw material portfolio — from UV filters and color pigments to sensory modifiers, film formers and silicone gels.
+    </div>
+  </div>
+  <div class="toc-right">
+    <div class="toc-section">
+      <div class="toc-section-title">Make-Up Ingredients</div>
+      <div class="toc-item"><span class="toc-item-name">UV Filters &amp; Fillers (Talc)</span><span class="toc-item-dots"></span><span class="toc-item-page">04</span></div>
+      <div class="toc-item"><span class="toc-item-name">Fillers (Sericite, Mica, BN) &amp; Color Pigments</span><span class="toc-item-dots"></span><span class="toc-item-page">05</span></div>
+      <div class="toc-item"><span class="toc-item-name">Color Pigments — Iron Oxide</span><span class="toc-item-dots"></span><span class="toc-item-page">06</span></div>
+      <div class="toc-item"><span class="toc-item-name">Pigment Dispersion</span><span class="toc-item-dots"></span><span class="toc-item-page">07</span></div>
+      <div class="toc-item"><span class="toc-item-name">Sensory Modifiers</span><span class="toc-item-dots"></span><span class="toc-item-page">08</span></div>
+      <div class="toc-item"><span class="toc-item-name">Sensory Modifiers — Continued</span><span class="toc-item-dots"></span><span class="toc-item-page">09</span></div>
+      <div class="toc-item"><span class="toc-item-name">Film Former &amp; Gel</span><span class="toc-item-dots"></span><span class="toc-item-page">10</span></div>
+    </div>
+  </div>
+  <div class="page-num right">03</div>
+</div>
+
+<!-- ===== PAGE 4 — UV Filters + Fillers (Talc) ===== -->
+<div class="page">
+  <div class="mag-page img-left">
+    <div class="mag-img">
+      <img src="../images/model_makeup.jpg" alt="">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">Where Beauty<br>Begins</div>
+    </div>
+    <div class="mag-content">
+      <div class="mag-title">Make-Up <em>Ingredients</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon uv">U</div><span class="cat-name">UV Filters — TiO2</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM TiO2</span><span class="product-inci">Titanium Dioxide, Alumina, Stearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM TL TiO2 80_SA</span><span class="product-inci">Titanium Dioxide, Aluminium Hydroxide, Stearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM TL TiO2 100_SA</span><span class="product-inci">Titanium Dioxide, Aluminium Hydroxide, Stearic Acid</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon uv">U</div><span class="cat-name">UV Filters — ZnO</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM ZnO AS 35</span><span class="product-inci">Zinc Oxide, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CM ZnO HD 35</span><span class="product-inci">Zinc Oxide, Hydrogenated Dimethicone</span></li>
+            <li class="product-item"><span class="product-name">CM ZnO AS 60</span><span class="product-inci">Zinc Oxide, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CM ZnO AS 80</span><span class="product-inci">Zinc Oxide, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CM ZnO AS 100</span><span class="product-inci">Zinc Oxide, Triethoxycaprylylsilane</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon filler">F</div><span class="cat-name">Fillers — Talc</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CMC CT10</span><span class="product-inci">Talc</span></li>
+            <li class="product-item"><span class="product-name">CMC CT 10 DCB 20</span><span class="product-inci">Talc, Dioctyldodecyl Dimer Dilinoleate</span></li>
+            <li class="product-item"><span class="product-name">CMC CT10 DAS</span><span class="product-inci">Talc, Triethoxycaprylylsilane, Dimethicone</span></li>
+            <li class="product-item"><span class="product-name">CM PROCYON TALC</span><span class="product-inci">Talc</span></li>
+            <li class="product-item"><span class="product-name">CM TALC 103 SSA</span><span class="product-inci">Talc, Dimethicone</span></li>
+            <li class="product-item"><span class="product-name">CM TALC 103 DAS</span><span class="product-inci">Talc, Triethoxycaprylylsilane, Dimethicone</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num right">04</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 4 — Fillers (Sericite/Mica/BN) + Pigment White ===== -->
+<div class="page">
+  <div class="mag-page img-right">
+    <div class="mag-content">
+      <div class="mag-title">Fillers &amp; <em>Color Pigments</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon filler">F</div><span class="cat-name">Fillers — Sericite &amp; Mica</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CMC SG 13</span><span class="product-inci">Mica</span></li>
+            <li class="product-item"><span class="product-name">CMC SG 13 ITI</span><span class="product-inci">Mica, Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMC SG13 LLS</span><span class="product-inci">Mica, Lauroyl Lysine, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CMC GH108 AS</span><span class="product-inci">Mica, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CMC NM H62</span><span class="product-inci">Mica</span></li>
+            <li class="product-item"><span class="product-name">CM SHINE MICA</span><span class="product-inci">Mica</span></li>
+            <li class="product-item"><span class="product-name">CM SHINE MICS LLS</span><span class="product-inci">Mica, Lauroyl Lysine, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CM Hcell 4</span><span class="product-inci">Mica, Microcrystalline Cellulose</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon filler">B</div><span class="cat-name">Fillers — Boron Nitride</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CMC BN 5</span><span class="product-inci">Boron Nitride</span></li>
+            <li class="product-item"><span class="product-name">CMC BN 10</span><span class="product-inci">Boron Nitride</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon pigment">C</div><span class="cat-name">Color Pigments — White</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM TIO2 CM AS AD</span><span class="product-inci">Titanium Dioxide, Aluminium Hydroxide, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CM LL-5 TiO2 CR-50</span><span class="product-inci">Titanium Dioxide, Aluminium Hydroxide, Lauroyl Lysine</span></li>
+            <li class="product-item"><span class="product-name">CMK TIO2 DSG</span><span class="product-inci">Titanium Dioxide(CI 77891), Aluminium Hydroxide, Disodium Stearoyl Glutamate</span></li>
+            <li class="product-item"><span class="product-name">CM ITT TiO2</span><span class="product-inci">Titanium Dioxide(CI 77891), Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK TIO2 ITI</span><span class="product-inci">Titanium Dioxide(CI 77891), Aluminium Hydroxide, Isostearic Acid, Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CM TiO2 50 AS</span><span class="product-inci">Titanium Dioxide, Aluminium Hydroxide, Triethoxycaprylylsilane</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num left">05</div>
+    </div>
+    <div class="mag-img">
+      <img src="../images/model3.jpg" alt="">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">Perfecting<br>Every Tone</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 5 — Color Pigments (Zinc/Iron Oxide) ===== -->
+<div class="page">
+  <div class="mag-page img-left">
+    <div class="mag-img">
+      <img src="../images/abstract_paint.jpg" alt="">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">The Art of<br>Color</div>
+    </div>
+    <div class="mag-content">
+      <div class="mag-title">Color <em>Pigments</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon pigment">Z</div><span class="cat-name">Zinc Oxide</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM ZINC AS</span><span class="product-inci">Zinc Oxide, Triethoxycaprylylsilane</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon pigment">I</div><span class="cat-name">Iron Oxide — Yellow (CI 77492)</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM ITT IOY</span><span class="product-inci">Iron Oxide(CI 77492), Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOY ITI</span><span class="product-inci">Iron Oxide(CI 77492), Isostearic Acid, Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOY DSG</span><span class="product-inci">Iron Oxide(CI 77492), Disodium Stearoyl Glutamate, Aluminium Hydroxide</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon pigment">I</div><span class="cat-name">Iron Oxide — Red (CI 77491)</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM ITT IOR</span><span class="product-inci">Iron Oxide(CI 77491), Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOR ITI</span><span class="product-inci">Iron Oxide(CI 77491), Isostearic Acid, Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOR DSG</span><span class="product-inci">Iron Oxide(CI 77491), Disodium Stearoyl Glutamate, Aluminium Hydroxide</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon pigment">I</div><span class="cat-name">Iron Oxide — Black (CI 77499)</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM ITT IOB</span><span class="product-inci">Iron Oxide(CI 77499), Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOB ITI</span><span class="product-inci">Iron Oxide(CI 77499), Isostearic Acid, Isopropyl Titanium Triisostearate</span></li>
+            <li class="product-item"><span class="product-name">CMK IOB DSG</span><span class="product-inci">Iron Oxide(CI 77499), Disodium Stearoyl Glutamate, Aluminium Hydroxide</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num right">06</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 6 — Pigment Dispersion ===== -->
+<div class="page">
+  <div class="mag-page img-right">
+    <div class="mag-content">
+      <div class="mag-title">Pigment <em>Dispersion</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon dispersion">D</div><span class="cat-name">Inorganic — by Color</span></div>
+          <div class="subcat-label">White — TiO2</div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM7WH60</span><span class="product-inci">Titanium Dioxide(CI 77891), Diisostearyl Malate, Polyhydroxystearic Acid</span></li>
+          </ul>
+          <div class="subcat-label">Yellow — Iron Oxide</div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM3R73</span><span class="product-inci">CI 77492(Iron Oxides), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+          </ul>
+          <div class="subcat-label">Red — Iron Oxide</div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM3R75</span><span class="product-inci">CI 77491(Iron Oxides), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+          </ul>
+          <div class="subcat-label">Black — Iron Oxide</div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM3B34</span><span class="product-inci">CI 77499(Iron Oxides), Diisostearyl Malate, Polyhydroxystearic Acid</span></li>
+          </ul>
+          <div class="subcat-label">Brown — Iron Oxide</div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM5BR72</span><span class="product-inci">CI 77491(Iron Oxides), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon dispersion">D</div><span class="cat-name">Organic</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM9Y24</span><span class="product-inci">Polyglyceryl-2 Triisostearate, CI 19140(Yellow 5 Al Lake), Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM0Y70</span><span class="product-inci">CI 15985(Yellow 6 Al Lake), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM9R19</span><span class="product-inci">Polyglyceryl-2 Triisostearate, CI 15850(Red 6 Sodium Salt), Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM9R12</span><span class="product-inci">Polyglyceryl-2 Triisostearate, CI 15850(Red 6 Sodium Salt), Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM9R11</span><span class="product-inci">Diisostearyl Malate, CI 15850(Red 7 Ca Lake), Polyglyceryl-2 Diisostearate, Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM4R34</span><span class="product-inci">Diisostearyl Malate, CI 45380(Red 22 Al Lake), Polyglyceryl-2 Diisostearate, Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM4R27</span><span class="product-inci">CI 45410(Red 27 Al Lake), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM4R28</span><span class="product-inci">CI 45410(Red 28 Al Lake), Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+            <li class="product-item"><span class="product-name">CM7R40</span><span class="product-inci">CI 16035, Polyglyceryl-2 Triisostearate, Polyhydroxystearic Acid</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num left">07</div>
+    </div>
+    <div class="mag-img">
+      <img src="../images/oil_water.jpg" alt="" style="filter: saturate(0.7) brightness(1.05);">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">Vivid Color<br>Dispersion</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 7 — Sensory Modifiers ===== -->
+<div class="page">
+  <div class="mag-page img-left">
+    <div class="mag-img">
+      <img src="../images/model_skin1.jpg" alt="">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">The Touch of<br>Perfection</div>
+    </div>
+    <div class="mag-content">
+      <div class="mag-title">Sensory <em>Modifiers</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon sensory">S</div><span class="cat-name">Calcium Carbonate &amp; Silica</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM CANDY POWDER</span><span class="product-inci">Calcium Carbonate</span></li>
+            <li class="product-item"><span class="product-name">CM HSS 100 MDS</span><span class="product-inci">Silica, Dimethicone, Macadamia Seed Oil</span></li>
+            <li class="product-item"><span class="product-name">CM SOFT SEBUM</span><span class="product-inci">Silica, Lauroyl Lysine</span></li>
+            <li class="product-item"><span class="product-name">CM CELL 9</span><span class="product-inci">Microcrystalline Cellulose</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon sensory">G</div><span class="cat-name">Glass Bead &amp; Hydroxy Apatite</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CMK GB 16</span><span class="product-inci">Calcium Aluminum Borosilicate</span></li>
+            <li class="product-item"><span class="product-name">CMK GB 16 AS</span><span class="product-inci">Calcium Aluminum Borosilicate, Triethoxycaprylylsilane</span></li>
+            <li class="product-item"><span class="product-name">CMK GB 16 ASMM</span><span class="product-inci">Calcium Aluminum Borosilicate, Triethoxycaprylylsilane, Mg Myristate</span></li>
+            <li class="product-item"><span class="product-name">DOUBLE CONTROL POWDER AS MM</span><span class="product-inci">Hydroxy Apatite, Calcium Carbonate, Triethoxycaprylylsilane, Magnesium Myristate</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon sensory">P</div><span class="cat-name">PMMA</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM POROUSPHERE 130</span><span class="product-inci">Methyl Methacrylate Crosspolymer</span></li>
+            <li class="product-item"><span class="product-name">CM PLD 60</span><span class="product-inci">Methyl Methacrylate Crosspolymer</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num right">08</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 8 — PMSQ + Nylon & Silicone Powder ===== -->
+<div class="page">
+  <div class="mag-page img-right">
+    <div class="mag-content">
+      <div class="mag-title">Sensory <em>Modifiers</em> — Continued</div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon sensory">Q</div><span class="cat-name">PMSQ</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CM PMSQ 50</span><span class="product-inci">Polymethylsilsesquioxane</span></li>
+            <li class="product-item"><span class="product-name">CM DOUGHNUT POWDER 20</span><span class="product-inci">Polymethylsilsesquioxane, Silica</span></li>
+            <li class="product-item"><span class="product-name">CM RASEPBERRY POWDER 50</span><span class="product-inci">Polymethylsilsesquioxane, Silica</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon sensory">N</div><span class="cat-name">Nylon &amp; Silicone Powder</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">CMC SNYLON-12</span><span class="product-inci">Nylon-12</span></li>
+            <li class="product-item"><span class="product-name">SE P8C</span><span class="product-inci">Dimethicone/Vinyl Dimethicone Crosspolymer</span></li>
+            <li class="product-item"><span class="product-name">CM SE P8</span><span class="product-inci">Vinyl Dimethicone/Methicone Silsesquioxane Crosspolymer</span></li>
+            <li class="product-item"><span class="product-name">CM SE P8 DSG</span><span class="product-inci">Vinyl Dimethicone/Methicone Silsesquioxane Crosspolymer, Disodium Stearoyl Glutamate</span></li>
+            <li class="product-item"><span class="product-name">CMK SE SD 20</span><span class="product-inci">Dimethicone/Vinyl Dimethicone Crosspolymer, Polymethylsilsesquioxane, Silica</span></li>
+            <li class="product-item"><span class="product-name">CM SES 70</span><span class="product-inci">Dimethicone/Vinyl Dimethicone Crosspolymer, Silica</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num left">09</div>
+    </div>
+    <div class="mag-img">
+      <img src="../images/white_powder2.jpg" alt="">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">Texture &amp;<br>Sensation</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 9 — Film Former & Gel ===== -->
+<div class="page">
+  <div class="mag-page img-left">
+    <div class="mag-img">
+      <img src="../images/abstract_paint.jpg" alt="" style="filter: saturate(0.6) brightness(1.1);">
+      <div class="mag-img-overlay"></div>
+      <div class="mag-img-caption">Form &amp;<br>Function</div>
+    </div>
+    <div class="mag-content">
+      <div class="mag-title">Film Former &amp; <em>Gel</em></div>
+      <div class="mag-products">
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon film">+</div><span class="cat-name">Film Former</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">AR-Shine</span><span class="product-inci">Methyl Hydrogenated Rosinate, Trimethyl Pentaphenyl Trisiloxane, Cetyl PEG/PPG-10/1 Dimethicone</span></li>
+            <li class="product-item"><span class="product-name">Green Film S</span><span class="product-inci">Isododecane, Methyl Hydrogenated Rosinate</span></li>
+            <li class="product-item"><span class="product-name">Green Film N</span><span class="product-inci">C9-C12 Alkane, Methyl Hydrogenated Rosinate</span></li>
+            <li class="product-item"><span class="product-name">Amber rosin F</span><span class="product-inci">Methyl Hydrogenated Rosinate</span></li>
+            <li class="product-item"><span class="product-name">CMC TPPT</span><span class="product-inci">Trimethyl Pentaphenyl Trisiloxane</span></li>
+            <li class="product-item"><span class="product-name">Honey boost-M</span><span class="product-inci">Water, Methylpropanediol, Polyether-1, Polyurethane-14, Cellulose</span></li>
+          </ul>
+        </div>
+        <div class="cat-block">
+          <div class="cat-header"><div class="cat-icon silicone">G</div><span class="cat-name">Silicone Gel</span></div>
+          <ul class="product-list">
+            <li class="product-item"><span class="product-name">NEOSIL DC GEL</span><span class="product-inci">Dimethicone, Dimethicone Crosspolymer</span></li>
+            <li class="product-item"><span class="product-name">NEOSIL HJ616</span><span class="product-inci">Dimethicone, Dimethicone Crosspolymer</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="page-num right">10</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FLYER APPENDIX (8 featured products) ===== -->
+<section class="flyer-section" id="flyer">
+  <div class="flyer-divider">
+    <span class="flyer-divider-line"></span>
+    <div class="flyer-divider-title">Featured <em>Flyer</em></div>
+    <div class="flyer-divider-sub">7 Featured Items</div>
+    <span class="flyer-divider-line"></span>
+  </div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-1.png" alt="Flyer 1" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-2.png" alt="Flyer 2" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-3.png" alt="Flyer 3" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-4.png" alt="Flyer 4" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-5.png" alt="Flyer 5" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-6.png" alt="Flyer 6" loading="lazy"></div>
+  <div class="flyer-slide"><img src="../flyer_slides/slide-7.png" alt="Flyer 7" loading="lazy"></div>
+</section>
+
+<script>
+(function () {
+  const A4_W = 1123; // 297mm @ 96dpi
+  const A4_H = 794;  // 210mm @ 96dpi
+  function fit() {
+    const root = document.documentElement;
+    const vw = window.innerWidth;
+    if (vw >= 1200) {
+      root.style.removeProperty('--mobile-scale');
+      root.style.removeProperty('--mobile-gap');
+      return;
+    }
+    const padding = 24;
+    const scale = Math.min(1, (vw - padding) / A4_W);
+    root.style.setProperty('--mobile-scale', scale);
+    const scaledH = A4_H * scale;
+    const gap = scaledH - A4_H + 20;
+    root.style.setProperty('--mobile-gap', gap + 'px');
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  fit();
+})();
+</script>
+</body>
+</html>
